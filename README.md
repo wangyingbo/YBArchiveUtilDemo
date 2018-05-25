@@ -5,7 +5,7 @@
 
 > 工具类实现归档解档
 
-###自己的model类可继承`YBAutoArchive`，也可不继承基类，只需在自己的model类的.m文件的实现里添加宏`YB_IMPLEMENTATION_CODE_WITH_CODER`，在.h里遵守NSCoding协议`@interface Person : NSObject<NSCoding>`。
+## 自己的model类可继承`YBAutoArchive`，也可不继承基类，只需在自己的model类的.m文件的实现里添加宏`YB_IMPLEMENTATION_CODE_WITH_CODER`，在.h里遵守NSCoding协议`@interface Person : NSObject<NSCoding>`。
 
 + 可全局配置保存的文件路径名，调用`setPlistPathName :`方法；
 + 也可以设置单独归档的文件名，调用`saveObject:withFilePathName:`或者`saveObjects:forFlag:withFilePathName`方法；
@@ -68,4 +68,4 @@
 	+ (NSArray *)getObjectsForFlag:(NSString*)flag withFilePathName:(NSString *)filePathName;
 
 
-####可修改`extern BOOL YBDebugAssertionsShouldBreak;`代码里的`YBDebugAssertionsShouldBreak `的值，这个值的作用是当遇到自定义的断言`YBDASSERT`时，是否需要断点定位到代码行。
+## 可修改`extern BOOL YBDebugAssertionsShouldBreak;`代码里的`YBDebugAssertionsShouldBreak `的值，这个值的作用是当遇到自定义的断言`YBDASSERT`时，是否需要断点定位到代码行。
