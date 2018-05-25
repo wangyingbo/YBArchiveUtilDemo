@@ -69,6 +69,8 @@ extern "C" {
 #pragma mark - 实现自定义断言的宏
 //此字段定义遇到断言时是否断点定位到代码行
 extern BOOL YBDebugAssertionsShouldBreak;
+
+#if defined(DEBUG)
 #if TARGET_IPHONE_SIMULATOR
 // 在宏定义中用__asm__
 #define YBDASSERT(xx) { if (!(xx)) { YBDPRINT(@"YBDASSERT failed: %s", #xx); \
@@ -81,7 +83,7 @@ if (YBDebugAssertionsShouldBreak && YBIsInDebugger()) { raise(SIGTRAP); } } \
 #endif // #if TARGET_IPHONE_SIMULATOR
 #else
 #define YBDASSERT(xx) ((void)0)
-
+#endif
 
 #pragma mark - 其他
 
