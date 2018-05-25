@@ -1,6 +1,8 @@
 # YBArchiveUtilDemo
 归档解档的工具
 
+<img src="https://raw.githubusercontent.com/wangyingbo/YBArchiveUtilDemo/master/screenshot.png" width = "299" height = "517" alt="screenShot1" align=center />
+
 > 工具类实现归档解档
 
 ###自己的model类可继承`YBAutoArchive`，也可不继承基类，只需在自己的model类的.m文件的实现里添加宏`YB_IMPLEMENTATION_CODE_WITH_CODER`。
