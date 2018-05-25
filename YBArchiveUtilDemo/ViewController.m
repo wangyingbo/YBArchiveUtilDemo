@@ -14,12 +14,6 @@
 
 @end
 
-//#ifdef DEBUG
-//#define DLog(...) NSLog(@"%s [line %d] %@", __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
-//#else
-//#define DLog(...)
-//#endif
-
 
 @implementation ViewController
 
@@ -30,6 +24,7 @@
     UIButton * btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.backgroundColor = [UIColor redColor];
     btn1.frame = CGRectMake(100, 100,150, 40);
+    btn1.center = CGPointMake(self.view.center.x, btn1.center.y);
     [btn1 setTitle:@"归档单个对象" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(archiverSingle) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn1];
@@ -37,6 +32,7 @@
     UIButton * btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn2.backgroundColor = [UIColor orangeColor];
     btn2.frame = CGRectMake(100, 150, 150, 40);
+    btn2.center = CGPointMake(self.view.center.x, btn2.center.y);
     [btn2 setTitle:@"解档单个对象" forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(unarchiverSingle) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn2];
@@ -45,6 +41,7 @@
     UIButton * btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn3.backgroundColor = [UIColor purpleColor];
     btn3.frame = CGRectMake(100, 200, 150, 40);
+    btn3.center = CGPointMake(self.view.center.x, btn3.center.y);
     [btn3 setTitle:@"归档多个对象" forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(archiverMutable) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
@@ -52,6 +49,7 @@
     UIButton * btn4 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn4.backgroundColor = [UIColor blueColor];
     btn4.frame = CGRectMake(100, 250, 150, 40);
+    btn4.center = CGPointMake(self.view.center.x, btn4.center.y);
     [btn4 setTitle:@"解档多个对象" forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(unarchiverMutable) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn4];
