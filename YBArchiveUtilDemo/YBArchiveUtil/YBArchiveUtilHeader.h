@@ -83,7 +83,7 @@ if (YBDebugAssertionsShouldBreak && YBIsInDebugger()) { raise(SIGTRAP); } } \
 #endif // #if TARGET_IPHONE_SIMULATOR
 #else
 #define YBDASSERT(xx) ((void)0)
-#endif
+#endif // #if DEBUG
 
 #pragma mark - 其他
 
