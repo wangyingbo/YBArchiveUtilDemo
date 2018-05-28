@@ -70,7 +70,7 @@
     Child *child = [[Child alloc]init];
     child.nickName = @"狗蛋儿";
     child.school = @"春田花花幼儿园";
-    p.child = child;
+    //p.child = child;
     
     BOOL success = [YBArchiveUtil saveObject:p withFilePathName:@"single"];
     
@@ -85,7 +85,7 @@
 - (void)unarchiverSingle
 {
     Person * p = [YBArchiveUtil getObjectWithFilePathName:@"single"];
-    NSLog(@"-------姓名=%@-------年龄=%d-------ID=%ld-------boo值=%@-------number型=%@-------昵称=%@-------学校=%@",p.name,p.age,(long)p.ID,(p.isShow?@"yes":@"no"),p.tagNumber,p.child.nickName,p.child.school);
+    NSLog(@"-------姓名=%@-------年龄=%d-------ID=%ld-------boo值=%@-------number型=%@-------child昵称=%@-------child学校=%@",p.name,p.age,(long)p.ID,(p.isShow?@"yes":@"no"),p.tagNumber,p.child.nickName,p.child.school);
 }
 
 - (void)archiverMutable
@@ -111,9 +111,7 @@
     
     if (success) {
         NSLog(@"归档多个对象成功");
-    }
-    else
-    {
+    } else {
         NSLog(@"归档多个对象失败");
     }
 }
