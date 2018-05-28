@@ -121,5 +121,11 @@
     NSArray * data =[YBArchiveUtil getObjectsForFlag:@"flag1" withFilePathName:@"multi"];
     
     NSLog(@"---------------%@",data);
+    
+    Person *p = [data lastObject];
+    if (p) {
+        NSLog(@"-------姓名=%@-------年龄=%d-------ID=%ld-------boo值=%@-------number型=%@-------child昵称=%@-------child学校=%@",p.name,p.age,(long)p.ID,(p.isShow?@"yes":@"no"),p.tagNumber,p.child.nickName,p.child.school);
+    }
+    
 }
 @end
