@@ -8,6 +8,8 @@
 
 #import "YBAutoArchive.h"
 #import <objc/runtime.h>
+#import "YBArchiveUtil.h"
+#import "YBArchiveUtilHeader.h"
 
 @implementation YBAutoArchive
 
@@ -17,6 +19,10 @@
     for (NSString * properName in properNames) {
         id value = [self valueForKey:properName];
         //归档到文件中
+        if (![YBArchiveUtil checkEncodeWithCoder:value]) {
+            YBDPRINT(@"%@ 没有实现EncodeWithCoder方法",value);
+            YBDASSERT([YBArchiveUtil checkEncodeWithCoder:value]);
+        }
         [aCoder encodeObject:value forKey:properName];
     }
 }

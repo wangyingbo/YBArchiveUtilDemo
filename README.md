@@ -5,7 +5,7 @@
 
 > 工具类实现归档解档
 
-## 自己的model类可继承`YBAutoArchive`，也可不继承基类，只需在自己的model类的.m文件的实现里添加宏`YB_IMPLEMENTATION_CODE_WITH_CODER`，在.h里遵守NSCoding协议`@interface Person : NSObject<NSCoding>`。
+## 需要被归档的model类可继承`YBAutoArchive`，也可不继承基类，只需在自己的model类的.m文件的`@implementation`和`@end`之间实现里添加宏`YB_IMPLEMENTATION_CODE_WITH_CODER`。
 
 + 可全局配置保存的文件路径名，调用`setPlistPathName :`方法；
 + 也可以设置单独归档的文件名，调用`saveObject:withFilePathName:`或者`saveObjects:forFlag:withFilePathName`方法；

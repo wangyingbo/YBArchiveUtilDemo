@@ -27,6 +27,7 @@
 + (BOOL)saveObject:(id)obj withFilePathName:(NSString *)filePathName {
     //判断obj里是否实现了归档方法
     if (![self checkEncodeWithCoder:obj]) {
+        YBDPRINT(@"%@ 没有实现EncodeWithCoder方法",obj);
         YBDASSERT([self checkEncodeWithCoder:obj]);
         return NO;
     }
@@ -60,6 +61,7 @@
     //判断objs每个数据里是否实现了归档方法
     for (id obj in objs) {
         if (![self checkEncodeWithCoder:obj]) {
+            YBDPRINT(@"%@ 没有实现EncodeWithCoder方法",obj);
             YBDASSERT([self checkEncodeWithCoder:obj]);
             return NO;
         }
@@ -86,13 +88,14 @@
 }
 
 /**
- 检查是否遵守了NSCoding协议
+ 检查是否遵守了NSCoding协议，是否实现了归档方法
 
  @param obj 待归档解档的对象
  @return 检查结果状态
  */
 + (BOOL)checkEncodeWithCoder:(id)obj {
-    return ([obj respondsToSelector:@selector(encodeWithCoder:)] && [obj conformsToProtocol:@protocol(NSCoding)]);
+    // && [obj conformsToProtocol:@protocol(NSCoding)]
+    return ([obj respondsToSelector:@selector(encodeWithCoder:)]);
 }
 
 /**

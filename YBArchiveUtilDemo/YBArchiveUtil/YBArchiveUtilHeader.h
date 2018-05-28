@@ -24,6 +24,10 @@
     NSArray * properNames = [self properNames]; \
     for (NSString * properName in properNames) { \
         id value = [self valueForKey:properName]; \
+        if (![YBArchiveUtil checkEncodeWithCoder:value]) { \
+            YBDPRINT(@"%@ 没有实现EncodeWithCoder方法",value); \
+            YBDASSERT([YBArchiveUtil checkEncodeWithCoder:value]); \
+        } \
         [aCoder encodeObject:value forKey:properName]; \
     } \
 } \

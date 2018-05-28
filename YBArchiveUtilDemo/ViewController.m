@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
     UIButton * btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.backgroundColor = [UIColor redColor];
     btn1.frame = CGRectMake(100, 100,150, 40);
@@ -63,13 +63,19 @@
     Person *p = [[Person alloc]init];
     p.name = @"张三";
     p.age = 20;
+    p.isShow = YES;
+    p.tagNumber = @5;
+    
+    Child *child = [[Child alloc]init];
+    child.nickName = @"狗蛋儿";
+    child.school = @"春田花花幼儿园";
+    p.child = child;
+    
     BOOL success = [YBArchiveUtil saveObject:p withFilePathName:@"single"];
     
     if (success) {
         NSLog(@"归档单个对象成功");
-    }
-    else
-    {
+    } else {
         NSLog(@"归档单个对象失败");
     }
     
@@ -78,7 +84,7 @@
 - (void)unarchiverSingle
 {
     Person * p = [YBArchiveUtil getObjectWithFilePathName:@"single"];
-    NSLog(@"-------姓名=%@-------年龄=%d",p.name,p.age);
+    NSLog(@"-------姓名=%@-------年龄=%d-------boo值=%@-------number型=%@-------昵称=%@-------学校=%@",p.name,p.age,(p.isShow?@"yes":@"no"),p.tagNumber,p.child.nickName,p.child.school);
 }
 
 - (void)archiverMutable

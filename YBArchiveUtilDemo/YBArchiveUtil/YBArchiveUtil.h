@@ -62,4 +62,11 @@
  */
 + (NSArray *)getObjectsForFlag:(NSString*)flag withFilePathName:(NSString *)filePathName;
 
+/**
+ 检查是否遵守了NSCoding协议，是否实现了归档方法
+ 
+ @param obj 待归档解档的对象
+ @return 检查结果状态
+ */
++ (BOOL)checkEncodeWithCoder:(id)obj;
 @end

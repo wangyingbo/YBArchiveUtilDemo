@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject<NSCoding>
+@interface Child : NSObject
+@property (nonatomic, strong) NSString *nickName;
+@property (nonatomic, strong) NSString *school;
+@end
+
+
+@interface Person : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign)int age;
 @property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, assign) BOOL isShow;
+@property (nonatomic, strong) NSNumber *tagNumber;
+@property (nonatomic, strong) Child *child;
 
 @end

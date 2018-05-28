@@ -9,12 +9,17 @@
 #import "Person.h"
 #import "YBArchiveUtilHeader.h"
 
+@implementation Child
+YB_IMPLEMENTATION_CODE_WITH_CODER
+@end
+
+
 @implementation Person
 
 YB_IMPLEMENTATION_CODE_WITH_CODER
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"-------姓名=%@-------年龄=%d",_name,_age];
+    return [NSString stringWithFormat:@"[Person cass]"];
 }
 @end
