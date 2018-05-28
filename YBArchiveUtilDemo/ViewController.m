@@ -63,6 +63,7 @@
     Person *p = [[Person alloc]init];
     p.name = @"张三";
     p.age = 20;
+    p.ID = 0;
     p.isShow = YES;
     p.tagNumber = @5;
     
@@ -84,7 +85,7 @@
 - (void)unarchiverSingle
 {
     Person * p = [YBArchiveUtil getObjectWithFilePathName:@"single"];
-    NSLog(@"-------姓名=%@-------年龄=%d-------boo值=%@-------number型=%@-------昵称=%@-------学校=%@",p.name,p.age,(p.isShow?@"yes":@"no"),p.tagNumber,p.child.nickName,p.child.school);
+    NSLog(@"-------姓名=%@-------年龄=%d-------ID=%ld-------boo值=%@-------number型=%@-------昵称=%@-------学校=%@",p.name,p.age,(long)p.ID,(p.isShow?@"yes":@"no"),p.tagNumber,p.child.nickName,p.child.school);
 }
 
 - (void)archiverMutable
@@ -96,6 +97,13 @@
         Person * p = [[Person alloc]init];
         p.name = [NSString stringWithFormat:@"李四%d",i];
         p.age = 10+i;
+        p.ID = i;
+        
+        Child *child = [[Child alloc] init];
+        child.nickName = @"二妞儿";
+        child.school = @"霍格沃兹";
+        p.child = child;
+        
         [data addObject:p];
     }
     

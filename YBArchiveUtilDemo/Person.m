@@ -20,6 +20,8 @@ YB_IMPLEMENTATION_CODE_WITH_CODER
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"[Person cass]"];
+    [NSString stringWithFormat:@"%@",[self class]];
+    
+    return [NSString stringWithFormat:@"-------姓名=%@-------年龄=%d-------ID=%ld-------boo值=%@-------number型=%@-------昵称=%@-------学校=%@",self.name,self.age,(long)self.ID,(self.isShow?@"yes":@"no"),self.tagNumber,self.child.nickName,self.child.school];
 }
 @end

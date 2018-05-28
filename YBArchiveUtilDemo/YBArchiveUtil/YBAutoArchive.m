@@ -19,11 +19,9 @@
     for (NSString * properName in properNames) {
         id value = [self valueForKey:properName];
         //归档到文件中
-        if (![YBArchiveUtil checkEncodeWithCoder:value]) {
-            YBDPRINT(@"%@ 没有实现EncodeWithCoder方法",value);
-            YBDASSERT([YBArchiveUtil checkEncodeWithCoder:value]);
+        if (value && properName) {
+            [aCoder encodeObject:value forKey:properName];
         }
-        [aCoder encodeObject:value forKey:properName];
     }
 }
 
@@ -32,7 +30,9 @@
         NSArray * properNames = [self properNames];
         for (NSString * properName in properNames) {
             id value = [aDecoder decodeObjectForKey:properName];
-            [self setValue:value forKey:properName];
+            if (value && properName) {
+                [self setValue:value forKey:properName];
+            }
         }
     }
     return self;
