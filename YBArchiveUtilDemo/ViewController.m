@@ -70,7 +70,7 @@
     Child *child = [[Child alloc]init];
     child.nickName = @"狗蛋儿";
     child.school = @"春田花花幼儿园";
-    //p.child = child;
+    p.child = child;
     
     BOOL success = [YBArchiveUtil saveObject:p withFilePathName:@"single"];
     
